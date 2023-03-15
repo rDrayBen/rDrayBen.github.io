@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Site Header</title>
+	<style>
+		body {
+			margin: 0;
+			padding: 0;
+		}
+
+		header {
+			background-color: #333;
+			color: #fff;
+			display: flex;
+			align-items: center;
+			padding: 10px;
+			box-sizing: border-box;
+		}
+
+		.logo {
+			flex: 1;
+			font-size: 24px;
+			font-weight: bold;
+			text-transform: uppercase;
+			letter-spacing: 2px;
+			margin: 0;
+		}
+
+		form {
+			display: flex;
+			align-items: center;
+			margin-right: 20px;
+		}
+
+		input[type="text"] {
+			padding: 5px;
+			border-radius: 5px 0 0 5px;
+			border: none;
+			font-size: 16px;
+			margin-right: -5px;
+			flex: 1;
+		}
+
+		button[type="submit"] {
+			background-color: #4CAF50;
+			color: #fff;
+			padding: 5px 10px;
+			border: none;
+			border-radius: 0 5px 5px 0;
+			cursor: pointer;
+			font-size: 16px;
+		}
+
+		.profile {
+			margin-left: 20px;
+			background-color: #fff;
+			color: #333;
+			padding: 5px 10px;
+			border-radius: 5px;
+			text-decoration: none;
+			font-size: 16px;
+			font-weight: bold;
+		}
+
+		.profile:hover {
+			background-color: #ddd;
+			color: #333;
+		}
+	</style>
+</head>
+<body>
+	<header>
+		<h1 class="logo">
+            <a href="#" class="logo">
+                Online store
+            </a>
+        </h1>
+		<form>
+			<input type="text" placeholder="Search...">
+			<button type="submit">Search</button>
+		</form>
+		<a href="#" class="profile">Profile</a>
+	</header>
+</body>
+</html>

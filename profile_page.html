@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>User Profile Page</title>
+	<style>
+		body {
+			font-family: Arial, sans-serif;
+			background-color: #f1f1f1;
+		}
+		
+		.container {
+			background-color: #ffffff;
+			padding: 20px;
+			max-width: 700px;
+			margin: 50px auto;
+			border-radius: 5px;
+			box-shadow: 0px 0px 10px #888888;
+		}
+		
+		.row {
+			display: flex;
+			flex-wrap: wrap;
+			margin-bottom: 10px;
+		}
+
+		.col {
+			flex: 1;
+			margin-right: 20px;
+		}
+
+		.col:last-child {
+			margin-right: 0;
+		}
+
+		.btn {
+			background-color: #4CAF50;
+			color: #ffffff;
+			padding: 10px 20px;
+			border: none;
+			border-radius: 3px;
+			cursor: pointer;
+			margin-right: 10px;
+		}
+
+		.btn:hover {
+			background-color: #45a049;
+		}
+
+	</style>
+</head>
+<body>
+	<div class="container">
+		<h2>User Profile</h2>
+		<div class="row">
+			<div class="col">
+				<label for="first-name">First Name:</label>
+				<span id="first-name">Dmytro</span>
+			</div>
+			<div class="col">
+				<label for="last-name">Last Name:</label>
+				<span id="last-name">Rabotiahov</span>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col">
+				<label for="login">Login:</label>
+				<span id="login">remon</span>
+			</div>
+			<div class="col">
+				<label for="address">Address:</label>
+				<span id="address">123 Name Street</span>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col">
+				<label for="phone">Phone:</label>
+				<span id="phone">123456789</span>
+			</div>
+			<div class="col">
+				<label for="email">Email:</label>
+				<span id="email">remon@gmail.com</span>
+			</div>
+		</div>
+		<div class="row">
+			<button class="btn" id="edit-profile-btn">Edit Profile</button>
+			<button class="btn" id="logout-btn">Logout</button>
+			<button class="btn" id="delete-user-btn">Delete User</button>
+		</div>
+	</div>
+</body>
+</html>
