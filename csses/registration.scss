@@ -1,0 +1,83 @@
+$body-font: Arial, sans-serif;
+$bg-color: #f1f1f1;
+$form-bg-color: #ffffff;
+$form-padding: 20px;
+$form-max-width: 700px;
+$form-margin: 50px auto;
+$form-border-radius: 5px;
+$form-box-shadow: 0px 0px 10px #888888;
+$input-padding: 10px;
+$input-margin: 5px 0 20px 0;
+$input-border-radius: 3px;
+$input-bg-color: #f7f7f7;
+$submit-bg-color: #4CAF50;
+$submit-color: #ffffff;
+$submit-padding: 12px 20px;
+$submit-border-radius: 3px;
+$submit-hover-bg-color: #45a049;
+$label-display: block;
+$label-font-weight: bold;
+$row-display: flex;
+$row-flex-wrap: wrap;
+$row-margin-bottom: 10px;
+$row-gap: 10px;
+$col-flex: 1;
+$col-margin-right: 20px;
+
+body {
+  font-family: $body-font;
+  background-color: $bg-color;
+}
+
+form {
+  background-color: $form-bg-color;
+  padding: $form-padding;
+  max-width: $form-max-width;
+  margin: $form-margin;
+  border-radius: $form-border-radius;
+  box-shadow: $form-box-shadow;
+}
+
+input[type=text], input[type=email], input[type=password], input[type=tel], textarea {
+  padding: $input-padding;
+  margin: $input-margin;
+  border: none;
+  border-radius: $input-border-radius;
+  background-color: $input-bg-color;
+  width: 100%;
+}
+
+input[type=submit] {
+  background-color: $submit-bg-color;
+  color: $submit-color;
+  padding: $submit-padding;
+  border: none;
+  border-radius: $submit-border-radius;
+  cursor: pointer;
+
+  &:hover {
+    background-color: $submit-hover-bg-color;
+  }
+}
+
+label {
+  display: $label-display;
+  font-weight: $label-font-weight;
+  margin-bottom: 10px;
+}
+
+.row {
+  display: $row-display;
+  flex-wrap: $row-flex-wrap;
+  margin-bottom: $row-margin-bottom;
+  gap: $row-gap;
+}
+
+.col {
+  flex: $col-flex;
+  margin-right: $col-margin-right;
+
+  &:last-child {
+    margin-right: 0;
+  }
+}

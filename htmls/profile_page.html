@@ -2,51 +2,7 @@
 <html>
 <head>
 	<title>User Profile Page</title>
-	<style>
-		body {
-			font-family: Arial, sans-serif;
-			background-color: #f1f1f1;
-		}
-		
-		.container {
-			background-color: #ffffff;
-			padding: 20px;
-			max-width: 700px;
-			margin: 50px auto;
-			border-radius: 5px;
-			box-shadow: 0px 0px 10px #888888;
-		}
-		
-		.row {
-			display: flex;
-			flex-wrap: wrap;
-			margin-bottom: 10px;
-		}
-
-		.col {
-			flex: 1;
-			margin-right: 20px;
-		}
-
-		.col:last-child {
-			margin-right: 0;
-		}
-
-		.btn {
-			background-color: #4CAF50;
-			color: #ffffff;
-			padding: 10px 20px;
-			border: none;
-			border-radius: 3px;
-			cursor: pointer;
-			margin-right: 10px;
-		}
-
-		.btn:hover {
-			background-color: #45a049;
-		}
-
-	</style>
+	<link rel="stylesheet" href="../csses/profile.css">
 </head>
 <body>
 	<div class="container">
@@ -82,7 +38,7 @@
 			</div>
 		</div>
 		<div class="row">
-			<button class="btn" id="edit-profile-btn">Edit Profile</button>
+			<button class="btn" id="edit-profile-btn"><a href="edit_profile_page.html">Edit Profile</a></button>
 			<button class="btn" id="logout-btn">Logout</button>
 			<button class="btn" id="delete-user-btn">Delete User</button>
 		</div>

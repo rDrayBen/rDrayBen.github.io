@@ -1,0 +1,57 @@
+$body-font-family: Arial, sans-serif;
+$body-bg-color: #f1f1f1;
+
+body {
+  font-family: $body-font-family;
+  background-color: $body-bg-color;
+}
+
+$form-bg-color: #ffffff;
+$form-padding: 20px;
+$form-max-width: 500px;
+$form-margin: 50px auto;
+$form-border-radius: 5px;
+$form-box-shadow: 0px 0px 10px #888888;
+
+form {
+  background-color: $form-bg-color;
+  padding: $form-padding;
+  max-width: $form-max-width;
+  margin: $form-margin;
+  border-radius: $form-border-radius;
+  box-shadow: $form-box-shadow;
+}
+
+$input-padding: 10px;
+$input-margin: 5px 0 20px 0;
+$input-border: none;
+$input-border-radius: 3px;
+$input-bg-color: #f7f7f7;
+
+input[type=email], input[type=password] {
+  padding: $input-padding;
+  margin: $input-margin;
+  border: $input-border;
+  border-radius: $input-border-radius;
+  background-color: $input-bg-color;
+}
+
+$submit-bg-color: #4CAF50;
+$submit-color: #ffffff;
+$submit-padding: 12px 20px;
+$submit-border: none;
+$submit-border-radius: 3px;
+$submit-cursor: pointer;
+
+input[type=submit] {
+  background-color: $submit-bg-color;
+  color: $submit-color;
+  padding: $submit-padding;
+  border: $submit-border;
+  border-radius: $submit-border-radius;
+  cursor: $submit-cursor;
+  
+  &:hover {
+    background-color: darken($submit-bg-color, 10%);
+  }
+}

@@ -1,0 +1,33 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f1f1f1;
+}
+
+form {
+  background-color: #ffffff;
+  padding: 20px;
+  max-width: 500px;
+  margin: 50px auto;
+  border-radius: 5px;
+  box-shadow: 0px 0px 10px #888888;
+}
+
+input[type=email], input[type=password] {
+  padding: 10px;
+  margin: 5px 0 20px 0;
+  border: none;
+  border-radius: 3px;
+  background-color: #f7f7f7;
+}
+
+input[type=submit] {
+  background-color: #4CAF50;
+  color: #ffffff;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+input[type=submit]:hover {
+  background-color: #3d8b40;
+}/*# sourceMappingURL=login1.css.map */
