@@ -2,13 +2,37 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Online Store Item Bucket</title>
+  <title>Item Bucket</title>
   <link rel="stylesheet" href="../csses/bucket_component.css">
+  <link rel="stylesheet" href="../csses/main.css">
+  <link rel="stylesheet" href="../csses/header.css">
 </head>
+<header>
+	<h1 class="logo">
+		<a href="main_page.html" class="logo">
+			Online store
+		</a>
+	</h1>
+	<form>
+		<input type="text" placeholder="Search...">
+		<button type="submit">Search</button>
+	</form>
+	<a href="profile_page.html" class="profile">Profile</a>
+</header>
 <body>
-  <h1>Online Store Item Bucket</h1>
+  <h1>Item Bucket</h1>
   <div class="item-bucket">
-    <!-- Item cards will be added here -->
+    <div class="card">
+			<div class="card-image">
+				<img src="https://via.placeholder.com/800x600" alt="Item Image">
+			</div>
+			<div class="card-details">
+				<h2 class="card-title">Item Title</h2>
+				<p class="card-price">$50.00</p>
+        <label for="card-description">Amount</label>
+			  <input type="number" min="0" id="amount-items" name="amount-items" required >
+			</div>
+		</div>
   </div>
 </body>
 </html>
