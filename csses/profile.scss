@@ -1,0 +1,64 @@
+$body-font: Arial, sans-serif;
+$bg-color: #f1f1f1;
+$container-bg-color: #ffffff;
+$container-padding: 20px;
+$container-max-width: 700px;
+$container-margin: 50px auto;
+$container-border-radius: 5px;
+$container-box-shadow: 0px 0px 10px #888888;
+$row-display: flex;
+$row-flex-wrap: wrap;
+$row-margin-bottom: 10px;
+$col-flex: 1;
+$col-margin-right: 20px;
+$btn-bg-color: #4CAF50;
+$btn-color: #ffffff;
+$btn-padding: 10px 20px;
+$btn-border: none;
+$btn-border-radius: 3px;
+$btn-cursor: pointer;
+$btn-margin-right: 10px;
+$btn-hover-bg-color: #45a049;
+
+body {
+  font-family: $body-font;
+  background-color: $bg-color;
+}
+
+.container {
+  background-color: $container-bg-color;
+  padding: $container-padding;
+  max-width: $container-max-width;
+  margin: $container-margin;
+  border-radius: $container-border-radius;
+  box-shadow: $container-box-shadow;
+}
+
+.row {
+  display: $row-display;
+  flex-wrap: $row-flex-wrap;
+  margin-bottom: $row-margin-bottom;
+}
+
+.col {
+  flex: $col-flex;
+  margin-right: $col-margin-right;
+
+  &:last-child {
+    margin-right: 0;
+  }
+}
+
+.btn {
+  background-color: $btn-bg-color;
+  color: $btn-color;
+  padding: $btn-padding;
+  border: $btn-border;
+  border-radius: $btn-border-radius;
+  cursor: $btn-cursor;
+  margin-right: $btn-margin-right;
+
+  &:hover {
+    background-color: $btn-hover-bg-color;
+  }
+}
