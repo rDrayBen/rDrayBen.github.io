@@ -1,0 +1,23 @@
+{
+  "name": "rdrayben.github.io",
+  "version": "1.0.0",
+  "description": "Project for WEB development",
+  "main": "index.js",
+  "scripts": {
+    "test": "standard && js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rDrayBen/rdrayben.github.io.git"
+  },
+  "author": "RabotiahovDmytro",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rDrayBen/rdrayben.github.io/issues"
+  },
+  "homepage": "https://github.com/rDrayBen/rdrayben.github.io#readme",
+  "devDependencies": {
+    "standard": "*"
+  },
+  "type": "module"
+}

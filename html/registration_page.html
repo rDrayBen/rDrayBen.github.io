@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Registration Page</title>
+	<link rel="stylesheet" href="../css/registration.css">
+	<script src="../js/create-user.js"></script>
+</head>
+<body>
+	<header>
+		<h1 class="logo">
+			<a href="../index.html" class="logo">
+				Online store
+			</a>
+		</h1>
+	</header>
+	<form id="create-user-form">
+		<h2>Registration Form</h2>
+		<div class="row">
+			<div class="col">
+				<label for="firstname">First Name:</label>
+				<input type="text" id="first_name" name="first_name" required>
+			</div>
+			<div class="col">
+				<label for="last-name">Last Name:</label>
+				<input type="text" id="last_name" name="last_name" required>
+			</div>
+		</div>
+		<label for="login">Login:</label>
+		<input type="text" id="login" name="login" required>
+		<label for="address">Address:</label>
+		<input id="address" type="text" name="address" rows="4" required></input>
+		<div class="row">
+			<div class="col">
+				<label for="phone">Phone:</label>
+				<input type="tel" id="phone" name="phone" required>
+			</div>
+			<div class="col">
+				<label for="email">Email:</label>
+				<input type="email" id="email" name="email" required>
+			</div>
+		</div>
+		<label for="password">Password:</label>
+		<input type="password" id="password" name="password" required>
+		<button 
+		type="submit"
+		id="create-user-button">
+		<a href="main_page.html">
+			Register
+		</a>
+		</button>
+		 or 
+		<a href="login_page.html">Log in</a>
+	</form>
+</body>
+</html>
