@@ -1,0 +1,72 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  background-color: #333;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  box-sizing: border-box;
+}
+header .logo {
+  flex: 1;
+  font-size: 24px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin: 0;
+  text-decoration:none
+}
+header .search-form {
+  display: flex;
+  align-items: center;
+  margin-right: 20px;
+}
+header .search-form .input-field {
+  padding: 5px;
+  border-radius: 5px 0 0 5px;
+  border: none;
+  font-size: 16px;
+  margin-right: -5px;
+  flex: 1;
+}
+header .search-form button[type=submit] {
+  background-color: #4CAF50;
+  color: #fff;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 0 5px 5px 0;
+  cursor: pointer;
+  font-size: 16px;
+}
+header .profile {
+  margin-left: 20px;
+  background-color: #fff;
+  color: #333;
+  padding: 5px 10px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: bold;
+}
+header .profile:hover {
+  background-color: #ddd;
+  color: #333;
+}
+header .item-bucket {
+  margin-left: 20px;
+  background-color: #fff;
+  color: #333;
+  padding: 5px 10px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: bold;
+}
+header .item-bucket:hover {
+  background-color: #ddd;
+  color: #333;
+}/*# sourceMappingURL=header.css.map */
