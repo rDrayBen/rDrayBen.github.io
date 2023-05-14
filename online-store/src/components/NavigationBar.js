@@ -3,8 +3,9 @@ import { Link } from "react-router-dom";
 import './styles/header.css';
 import './styles/index.css';
 import './styles/main.css';
+import React from 'react';
 
-export const NavigationBar = function({}){
+export const NavigationBar = function(){
     const location = useLocation();
 
     const renderContainer = (pathname) => {
@@ -20,7 +21,7 @@ export const NavigationBar = function({}){
                     <div class="buttons">
                         <button class="registration"><Link to="/registration" style={{textDecoration:"none"}}>Registration</Link></button>
                         <button class="login"><Link to="/login" style={{textDecoration:"none"}}>Login</Link></button>
-                        <button><Link to="/main" style={{textDecoration:"none"}}>Main page</Link></button>
+                        {/* <button><Link to="/main" style={{textDecoration:"none"}}>Main page</Link></button> */}
                     </div>
                 </header>
             );

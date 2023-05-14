@@ -1,6 +1,4 @@
 from flask import Blueprint, request, jsonify
-from flask_cors import cross_origin
-
 import db_utils
 from models import User, Vendor, Good_Category, Good, Order, Delivery
 from schemas import *
@@ -13,7 +11,6 @@ api_blueprint = Blueprint('api', __name__)
 
 
 @api_blueprint.route("/user", methods=["POST"])  # working
-@cross_origin()
 def createUser():
     try:
         userData = CreateUser().load(request.json)

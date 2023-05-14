@@ -1,4 +1,5 @@
 import './styles/bucket_component.css';
+import React from 'react';
 
 export const ShoppingCart = function(){
 

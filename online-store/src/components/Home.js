@@ -1,33 +1,55 @@
-import land_page from '../images/landing_page.jpg'
-import { NavigationBar } from './NavigationBar';
-import { Link } from "react-router-dom";
+import land_page from '../images/landing_page.jpg';
+import './styles/main.css';
+import { ItemCardComponent } from "./ItemCardComponent";
+import React from 'react';
+import { useEffect, useState } from 'react';
+import axios from 'axios';
 
 export const Home = function(){
 
+    const [goodsData, setGoodsData] = useState([]);
+    const url = 'http://127.0.0.1:5000/good';
+    const handleGetGoods = async () => {
+        const config = {
+            headers: {
+                'Access-Control-Allow-Origin': '*',
+                'Content-Type': 'application/json'
+            },
+        };
+    
+        try {
+            const response = await axios.get(
+                url,
+                config
+            );
+            // console.log(response);
+            setGoodsData(response.data);
+        } catch (error) {
+            console.log(error);
+        }
+  };
+
+    useEffect(() => {
+        handleGetGoods();
+      }, []);
     return(
         <>
-        {/* <header>
-            <h1 class="logo">
-                <a href="" class="logo">
-                    Online store
-                </a>
-            </h1>
-            <div class="buttons">
-                <button class="registration"><Link>Registration</Link></button>
-                <button class="login"><Link to="">Login</Link></button>
-                <button><Link to="">Main page</Link></button>
+        <body>
+            <div class="container">
+                {
+                    goodsData.map((element)=>(
+                        <ItemCardComponent
+                        itemImage={element.photo}
+                        title={element.name}
+                        description={element.description}
+                        price={element.cost}
+                        button_visible={false}
+                        amount_available={element.num_in_stock}
+                        />
+                    ))
+                }
             </div>
-        </header> */}
-            <main>
-                <h1>About Us</h1>
-                <div>
-                    <img src={land_page} alt="Online store picture"></img>
-                </div>
-                <p>
-                    Welcome to the simple internet store where you can order and buy all available products.
-                </p>
-            </main>
+        </body>
         </>
-        
     );
 }

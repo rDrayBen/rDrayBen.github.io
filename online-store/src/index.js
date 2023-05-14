@@ -12,6 +12,7 @@ import { Main } from './components/Main';
 import { Profile } from './components/Profile';
 import { EditProfile } from './components/EditProfile';
 import { ShoppingCart } from './components/ShoppingCart';
+import {Authorized} from './components/Authorized';
 import './components/styles/header.css';
 import './components/styles/index.css';
 
@@ -22,13 +23,13 @@ root.render(
     <BrowserRouter>
         <NavigationBar />
         <Routes>
-          <Route path='/' element={<Home />}/>
-          <Route path='/registration' element={<Registration />} />
-          <Route path='/login' element={<Login />} />
-          <Route path='/main' element={<Main />} />
-          <Route path='/profile' element={<Profile />} />
-          <Route path='/edit_profile' element={<EditProfile />} />
-          <Route path='/shopping_cart' element={<ShoppingCart />} />
+          <Route path='/' element={<Authorized><Home /></Authorized>}/>
+          <Route path='/registration' element={<Authorized><Registration /></Authorized>} />
+          <Route path='/login' element={<Authorized><Login /></Authorized>} />
+          <Route path='/main' element={<Authorized><Main /></Authorized>} />
+          <Route path='/profile' element={<Authorized><Profile /></Authorized>} />
+          <Route path='/edit_profile' element={<Authorized><EditProfile /></Authorized>} />
+          <Route path='/shopping_cart' element={<Authorized><ShoppingCart /></Authorized>} />
         </Routes>
       </BrowserRouter>
   </React.StrictMode>

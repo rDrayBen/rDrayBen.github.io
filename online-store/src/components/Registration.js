@@ -1,8 +1,9 @@
 import './styles/registration.css';
 import { Link } from "react-router-dom";
-import React, {useState,setState, useEffect, useRef} from 'react';
+import React, {useState} from 'react';
 import { useNavigate } from "react-router-dom";
-
+import axios from 'axios';
+import { RefreshToken} from './RefreshToken.js';
 
 export const Registration = function(){
 
@@ -38,39 +39,41 @@ export const Registration = function(){
         setPassword(e.target.value);
     };
 
-    const handleSubmit  = () => {
-        fetch('http://127.0.0.1:5000/user', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify(
-            {
-              first_name: firstName,
-              last_name: lastName,
-              email: email,
-              login : login,
-              password: password,
-              address: address,
-              phone:phone
+    const config = {
+        headers: {
+            'Access-Control-Allow-Origin': '*',
+            'Content-Type': 'application/json',
+        }
+    };
+
+    const handleSubmit  = async event => {
+        event.preventDefault();
+        const data = {
+            first_name: firstName,
+            last_name: lastName,
+            email: email,
+            login : login,
+            password: password,
+            address: address,
+            phone: phone
+        }
+        
+        try{
+            let response = await axios.post('http://127.0.0.1:5000/user', data, config);
+            const credentials = btoa(login + ':' + password);
+            console.log(response);
+            sessionStorage.setItem('Authorization', `Basic ${credentials}`);
+            sessionStorage.setItem('UID', response['data']['id']);
+            localStorage.setItem('Authorization', `Basic ${credentials}`);
+            navigate('/main');
+        } catch (error){
+            try{
+                alert(error.response.data);
+            }catch(e){
+                alert('Not unique login or email')
             }
-          )
-        })
-        .then(response => {
-            response.json();
-            console.log(response.json());
-        })
-        .then(jsonResponse => {
-          if (jsonResponse.status >=300) {
-            throw new Error(jsonResponse.message)
-          } else {
-            alert('Success');     
-            navigate("/");
-          }
-        })
-        .catch(e => {
-            alert(e.message);  
-        });
+            
+        }
       };
 
 
@@ -95,7 +98,7 @@ export const Registration = function(){
                 <div class="row">
                     <div class="col">
                         <label for="phone">Phone:</label>
-                        <input type="tel" id="phone" name="phone" onChange={e=>handlePhone(e)} required/>
+                        <input type="tel" id="phone" name="phone" onChange={e=>handlePhone(e)} pattern='/^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/im' required/>
                     </div>
                     <div class="col">
                         <label for="email">Email:</label>
@@ -107,7 +110,7 @@ export const Registration = function(){
                 <button 
                 type="submit"
                 id="create-user-button"
-                onClick = {()=>handleSubmit()}>
+                onClick = {(e)=>handleSubmit(e)}>
                   Register
                 </button>
                 &nbsp;&nbsp; or &nbsp;&nbsp;

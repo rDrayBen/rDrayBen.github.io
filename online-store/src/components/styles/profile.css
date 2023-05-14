@@ -38,3 +38,8 @@ body {
 .btn:hover {
   background-color: #45a049;
 }/*# sourceMappingURL=profile.css.map */
+
+.modalContainer{
+  margin-left: 0;
+  display: flex;
+}

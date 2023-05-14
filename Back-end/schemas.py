@@ -37,7 +37,7 @@ class GetUser(Schema):
     email = fields.String()
     address = fields.String()
     phone = fields.String()
-
+    id = fields.Integer()
 
 class UpdateUser(Schema):
     first_name = fields.String(validate=validate.Regexp("^[\w'\-,.][^0-9_!¡?÷?¿/\\+=@#$%ˆ&*(){}|~<>;:[\]]{2,}$",
@@ -98,6 +98,8 @@ class GoodData(Schema):
     #category_id = fields.Nested(GoodCategoryData(only=('id',)))
     vendor_id = fields.Integer()
     category_id = fields.Integer()
+    photo = fields.String()
+
 
 class CreateGood(Schema):
     name = fields.String(validate=validate.Regexp("^[\w'\-,.][^0-9_!¡?÷?¿/\\+=@#$%ˆ&*(){}|~<>;:[\]]{2,}$", error="Invalid goods name"), required=True)
@@ -110,7 +112,7 @@ class CreateGood(Schema):
     #category_id = fields.Nested(GoodCategoryData(only=('id',)), required=True)
     vendor_id = fields.Integer(required=True)
     category_id = fields.Integer(required=True)
-
+    photo = fields.String(required=True)
 
 class GetGood(Schema):
     name = fields.String()
@@ -123,7 +125,7 @@ class GetGood(Schema):
     #category_id = fields.Nested(GoodCategoryData(only=('id',)))
     vendor_id = fields.Integer()
     category_id = fields.Integer()
-
+    photo = fields.String()
 
 class UpdateGood(Schema):
     name = fields.String(validate=validate.Regexp('^[a-zA-Z]', error="Invalid goods name"))
