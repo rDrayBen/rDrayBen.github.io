@@ -45,6 +45,7 @@ export const Home = function(){
                         price={element.cost}
                         button_visible={false}
                         amount_available={element.num_in_stock}
+                        item_id={0}
                         />
                     ))
                 }

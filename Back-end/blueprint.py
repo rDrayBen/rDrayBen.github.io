@@ -274,27 +274,27 @@ def createOrder():
         response.status_code = 405
         return response
 
-    if current_identity_login == user.login:
-        try:
-            orderData = CreateOrder().load(request.json)
-            if orderData['user_id'] != user.id:
-                response = make_response(jsonify("You can`t to another account"))
-                response.status_code = 405
-                return response
+    # if current_identity_login == user.login:
+    try:
+        orderData = CreateOrder().load(request.json)
+        if orderData['user_id'] != user.id:
+            response = make_response(jsonify("You can`t to another account"))
+            response.status_code = 405
+            return response
 
-            if db_utils.get_entry_by_id(User, input_id=orderData['user_id']) == 405 or \
-                    db_utils.get_entry_by_id(Good, input_id=orderData['good_id']) == 405:
-                response = make_response("Invalid foreign key in input")
-                response.status_code = 405
-                return response
-            order = db_utils.create_entry(Order, **orderData)
-        except ValidationError as err:
-            response = dict({"message": err.normalized_messages()})
-            return response, 400
-        response = make_response(jsonify(GetOrders().dump(order)))
-        response.status_code = 200
-        return response
-    return make_response(jsonify("Must login"))
+        if db_utils.get_entry_by_id(User, input_id=orderData['user_id']) == 405 or \
+                db_utils.get_entry_by_id(Good, input_id=orderData['good_id']) == 405:
+            response = make_response("Invalid foreign key in input")
+            response.status_code = 405
+            return response
+        order = db_utils.create_entry(Order, **orderData)
+    except ValidationError as err:
+        response = dict({"message": err.normalized_messages()})
+        return response, 400
+    response = make_response(jsonify(GetOrders().dump(order)))
+    response.status_code = 200
+    return response
+    # return make_response(jsonify("Must login"))
     # create new order
 
 
@@ -462,22 +462,22 @@ def updateGood(good_id):
         response.status_code = 405
         return response
 
-    if curr.is_admin == 1:
-        try:
-            goodData = UpdateGood().load(request.json)
-        except ValidationError as err:
-            response = dict({"message": err.normalized_messages()})
-            return response, 400
-        good = db_utils.get_entry_by_id(Good, good_id)
-        if good == 405:
-            response = make_response("Invalid input id")
-            response.status_code = 405
-            return response
-        db_utils.update_entry(good, **goodData)
-        response = make_response(jsonify(GetGood().dump(good)))
-        response.status_code = 200
+    # if curr.is_admin == 1:
+    try:
+        goodData = UpdateGood().load(request.json)
+    except ValidationError as err:
+        response = dict({"message": err.normalized_messages()})
+        return response, 400
+    good = db_utils.get_entry_by_id(Good, good_id)
+    if good == 405:
+        response = make_response("Invalid input id")
+        response.status_code = 405
         return response
-    return make_response(jsonify("Access denied"), 403)
+    db_utils.update_entry(good, **goodData)
+    response = make_response(jsonify(GetGood().dump(good)))
+    response.status_code = 200
+    return response
+    # return make_response(jsonify("Access denied"), 403)
     # update certain good by id
 
 

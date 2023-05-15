@@ -44,6 +44,7 @@ export const Main = function(){
                         price={element.cost}
                         button_visible={true}
                         amount_available={element.num_in_stock}
+                        item_id={element.id}
                         />
                     ))
                 }

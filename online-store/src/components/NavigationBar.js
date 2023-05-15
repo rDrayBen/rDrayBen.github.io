@@ -60,10 +60,10 @@ export const NavigationBar = function(){
                                 Online store
                             </Link>
                         </h1>
-                        <form class="search-form">
+                        {/* <form class="search-form">
                             <input type="text" class="input-field" placeholder="Search..."/>
                             <button type="submit" class="submit-search">Search</button>
-                        </form>
+                        </form> */}
                          <Link to="/profile" class="profile">Profile</Link>   
                     </header>
                 );
@@ -75,10 +75,10 @@ export const NavigationBar = function(){
                                 Online store
                             </Link>
                         </h1>
-                        <form class="search-form">
+                        {/* <form class="search-form">
                             <input type="text" class="input-field" placeholder="Search..."/>
                             <button type="submit" class="submit-search">Search</button>
-                        </form>
+                        </form> */}
                             <Link to='/shopping_cart' class="item-bucket">Shopping cart</Link>
                     </header>
                 );
@@ -90,11 +90,11 @@ export const NavigationBar = function(){
                             Online store
                         </Link>
                     </h1>
-                    <form class="search-form">
+                    {/* <form class="search-form">
                         <input type="text" class="input-field" placeholder="Search..."/>
                         <button type="submit" class="submit-search">Search</button>
-                    </form>
-                        <Link to="/item_bucket" class="item-bucket">Shopping cart</Link>
+                    </form> */}
+                        <Link to="/shopping_cart" class="item-bucket">Shopping cart</Link>
                         <Link to="/profile" class="profile">Profile</Link>
                     
                 </header>

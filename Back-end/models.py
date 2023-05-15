@@ -66,6 +66,7 @@ class Order(Base):
     good_id = Column(Integer, ForeignKey('goodnew.id'), primary_key=True, nullable=False)
     buy_date = Column(DateTime, nullable=False, default=datetime.datetime.now())
     delivery = sqlalchemy.orm.relationship("Delivery", backref="Order", uselist=False, cascade='all, delete')
+    amount = Column(Integer, nullable=False)
 
 
 class Delivery(Base):

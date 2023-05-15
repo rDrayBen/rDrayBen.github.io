@@ -81,6 +81,7 @@ export const Registration = function(){
         <body>
             <form id="create-user-form" className='registration-form'>
                 <h2>Registration Form</h2>
+                <span style={{color: 'grey'}}>This data will be used for delivery</span>
                 <div class="row">
                     <div class="col">
                         <label for="firstname">First Name:</label>

@@ -57,6 +57,7 @@ export const Profile = function(){
     //sessionStorage.removeItem('Token');
     localStorage.removeItem('Authorization');
     localStorage.removeItem('Token');
+    localStorage.removeItem("cartGoods");
     navigate('/');
   }
 
@@ -76,6 +77,8 @@ export const Profile = function(){
         //sessionStorage.removeItem('Token');
         localStorage.removeItem('Authorization');
         localStorage.removeItem('Token');
+        localStorage.removeItem("ShoppingCartItems");
+        localStorage.removeItem("cartGoods");
         navigate('/');
         alert('Your account was successfully deleted');
     } catch (error) {
