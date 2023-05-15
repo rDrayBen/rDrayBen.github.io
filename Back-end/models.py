@@ -44,7 +44,7 @@ class Good_Category(Base):
 
 
 class Good(Base):
-    __tablename__ = 'good'
+    __tablename__ = 'goodnew'
     id = Column(Integer, primary_key=True, autoincrement=True)
     vendor_id = Column(Integer, ForeignKey("vendor.id"), primary_key=True, nullable=False)
     category_id = Column(Integer, ForeignKey("good_category.id"), nullable=False)
@@ -54,6 +54,7 @@ class Good(Base):
     num_in_stock = Column(Integer, nullable=False)
     creation_date = Column(DateTime, nullable=False)
     is_reserved = Column(Boolean, nullable=False, default=0)
+    photo = Column(String(200), nullable=False)
 
     order = sqlalchemy.orm.relationship("Order", backref="Good", uselist=False, cascade='all, delete')
 
@@ -62,9 +63,10 @@ class Order(Base):
     __tablename__ = 'order'
     id = Column(Integer, primary_key=True, autoincrement=True)
     user_id = Column(Integer, ForeignKey('user.id'), primary_key=True, nullable=False)
-    good_id = Column(Integer, ForeignKey('good.id'), primary_key=True, nullable=False)
+    good_id = Column(Integer, ForeignKey('goodnew.id'), primary_key=True, nullable=False)
     buy_date = Column(DateTime, nullable=False, default=datetime.datetime.now())
     delivery = sqlalchemy.orm.relationship("Delivery", backref="Order", uselist=False, cascade='all, delete')
+    amount = Column(Integer, nullable=False)
 
 
 class Delivery(Base):

@@ -1,7 +1,5 @@
 
-document.addEventListener('DOMContentLoaded', () => {
-    
-    const loginButton = document.getElementById('login-user-button');
+const loginButton = document.getElementById('login-user-button');
     function Login() {
         const username = document.getElementById('login').value;
         const password = document.getElementById('password').value;
@@ -35,4 +33,3 @@ document.addEventListener('DOMContentLoaded', () => {
           })
     }
     loginButton.addEventListener('click', Login);
-});
