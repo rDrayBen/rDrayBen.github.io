@@ -35,7 +35,7 @@ export const Home = function(){
     return(
         <>
         <body>
-            <div class="container">
+            <div class="container" data-testid="goodsContainer">
                 {
                     goodsData.map((element)=>(
                         <ItemCardComponent

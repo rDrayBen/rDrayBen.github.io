@@ -76,35 +76,56 @@ export const ShoppingCart = function(){
   }, []);
   
   async function handleSingleItem (itemID, amnt_was, amnt_is){
+    function getFormattedDateTime() {
+      const now = new Date();
+      
+      // Get individual date and time components
+      const year = now.getFullYear().toString();
+      const month = String(now.getMonth() + 1).padStart(2, '0');
+      const day = String(now.getDate()).padStart(2, '0');
+      const hours = String(now.getHours()).padStart(2, '0');
+      const minutes = String(now.getMinutes()).padStart(2, '0');
+      const seconds = String(now.getSeconds()).padStart(2, '0');
+      
+      // Construct the formatted date-time string
+      const formattedDateTime = `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;
+      
+      return formattedDateTime;
+    }
     try{
-      var data = {};
+      let data = {};
       data['num_in_stock'] = amnt_was - 1;
       const response = await axios.put(url + itemID, data, PutConfig);
       data = {};
-      localStorage.setItem("ShoppingCartItems", '[]');
-      localStorage.setItem("cartGoods", '[]');
-      alert("Your order successfuly created");
-      navigate('/main');
+      try{
+        let orderData = {};
+        const orderUrl = 'http://127.0.0.1:5000/order';
+        orderData['user_id'] = Number(sessionStorage.getItem("UID"));
+        orderData['good_id'] = Number(itemID);
+        orderData['amount'] = Number(amnt_is);
+        orderData['buy_date'] = String(getFormattedDateTime());
+        console.log(getFormattedDateTime());
+        const orderResponse = await axios.post(orderUrl, orderData, PutConfig);
+        console.log(orderResponse);
+        orderData = {};
+      }catch(error){
+          console.log(error);
+          if(error.response.data.msg === "Token has expired"){
+            alert('You need to log in again');
+            sessionStorage.removeItem('Authorization');
+            navigate('/login');
+        }
+          alert(error);
+      }
     }catch(error){
         console.log(error);
+        if(error.response.data.msg === "Token has expired"){
+          alert('You need to log in again');
+          sessionStorage.removeItem('Authorization');
+          navigate('/login');
+      }
         alert(error);
-        
     }
-
-    // try{
-    //   var data = {};
-    //   const orderUrl = 'http://127.0.0.1:5000/order';
-    //   data['user_id'] = sessionStorage.getItem("UID");
-    //   data['good_id'] = itemID;
-    //   data['amount'] = amnt_is;
-    //   data['buy_date'] = 
-    //   const response = await axios.put(url + itemID, data, PutConfig);
-    //   data = {};
-    // }catch(error){
-    //     console.log(error);
-    //     alert(error);
-        
-    // }
   }
 
   function handleOrder(event){
@@ -118,7 +139,10 @@ export const ShoppingCart = function(){
         }
       });
     });
-
+    localStorage.setItem("ShoppingCartItems", '[]');
+    localStorage.setItem("cartGoods", '[]');
+    alert("Your order successfuly created");
+    navigate('/main');
   }
 
   cartGoods = JSON.parse(localStorage.getItem('cartGoods'));
@@ -126,7 +150,7 @@ export const ShoppingCart = function(){
 
   return(
   <body>
-    <h1>Shopping Cart</h1>
+    <h1><br></br>Shopping Cart<br></br></h1>
     <div class="item-bucket">
       {
         empty ?

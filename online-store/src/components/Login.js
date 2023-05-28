@@ -26,6 +26,7 @@ export const Login = function() {
   const config = {
     headers: {
         'Access-Control-Allow-Origin': '*',
+        'Content-Type': 'application/json',
         Authorization: `Basic ${credentials}`
     }
   };
@@ -54,14 +55,14 @@ export const Login = function() {
         alert('Login and password fields must be filled');
     }else{
         try{
-            const response = await axios.put(loginUrl, config);
+            const response = await axios.get(loginUrl, config);
             console.log(response);
             sessionStorage.setItem('Authorization', `Basic ${credentials}`);
             sessionStorage.setItem('Token', response['data']['token']);
             navigate('/main');
         }catch(error){
             // console.log(error);
-            // alert('Invalid login or password');
+            // alert(error.response.data);
             if(login === 'abc' && password === '11111'){
                 sessionStorage.setItem('Authorization', `Basic ${credentials}`);
                 navigate('/main');

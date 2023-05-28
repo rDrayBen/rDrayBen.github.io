@@ -64,7 +64,8 @@ export const NavigationBar = function(){
                             <input type="text" class="input-field" placeholder="Search..."/>
                             <button type="submit" class="submit-search">Search</button>
                         </form> */}
-                         <Link to="/profile" class="profile">Profile</Link>   
+                        <Link to='/my_orders' class="item-bucket">My Orders</Link>
+                        <Link to="/profile" class="profile">Profile</Link>   
                     </header>
                 );
                 case '/profile':

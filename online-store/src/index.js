@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
+import axios from 'axios';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { Home } from './components/Home';
@@ -12,6 +13,7 @@ import { Main } from './components/Main';
 import { Profile } from './components/Profile';
 import { EditProfile } from './components/EditProfile';
 import { ShoppingCart } from './components/ShoppingCart';
+import { MyOrders } from './components/MyOrders';
 import {Authorized} from './components/Authorized';
 import './components/styles/header.css';
 import './components/styles/index.css';
@@ -30,6 +32,7 @@ root.render(
           <Route path='/profile' element={<Authorized><Profile /></Authorized>} />
           <Route path='/edit_profile' element={<Authorized><EditProfile /></Authorized>} />
           <Route path='/shopping_cart' element={<Authorized><ShoppingCart /></Authorized>} />
+          <Route path='/my_orders' element={<Authorized><MyOrders /></Authorized>} />
         </Routes>
       </BrowserRouter>
   </React.StrictMode>

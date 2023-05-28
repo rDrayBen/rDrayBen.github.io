@@ -55,6 +55,10 @@ export const EditProfile = function(){
             setAccountData(response.data);
         } catch (error) {
             console.log(error);
+            if(error.response.data.msg === "Token has expired"){
+                alert('You need to log in again');
+                navigate('/login');
+            }
         }
   };
 
@@ -101,6 +105,11 @@ export const EditProfile = function(){
                 alert("You successfuly updated your profile data");
             } catch (error) {
                 console.log(error);
+                if(error.response.data.msg === "Token has expired"){
+                    alert('You need to log in again');
+                    sessionStorage.removeItem('Authorization');
+                    navigate('/login');
+                }
             }
         }
         

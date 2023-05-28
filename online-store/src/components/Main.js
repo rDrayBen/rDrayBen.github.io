@@ -23,6 +23,7 @@ export const Main = function(){
             );
             // console.log(response);
             setGoodsData(response.data);
+            localStorage.setItem('Items', JSON.stringify(response.data));
         } catch (error) {
             console.log(error);
         }

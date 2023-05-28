@@ -22,22 +22,6 @@ export const Profile = function(){
                 Authorization: 'Bearer ' + token
             },
         };
-        // const configLogin = {
-        //     headers: {
-        //         'Access-Control-Allow-Origin': '*',
-        //         'Content-Type': 'application/json',
-        //         Authorization: sessionStorage.getItem('Authorization')
-        //     }
-        // };
-        // try {
-        //     const response1 = await axios.get('http://127.0.0.1:5000/user/login', configLogin);
-        //     sessionStorage.setItem('Token', response1['data']['token']);
-        //     console.log(response1.data.token);
-            
-        // } catch (error) {
-        //     alert('Log in again to continue');
-        //     navigate('/login');
-        // }
     
         try {
         const response = await axios.get(
@@ -47,7 +31,12 @@ export const Profile = function(){
         // console.log(response);
         setAccountData(response.data);
         } catch (error) {
-        console.log(error);
+            console.log(error);
+            if(error.response.data.msg === "Token has expired"){
+                alert('You need to log in again');
+                sessionStorage.removeItem('Authorization');
+                navigate('/login');
+            }
         }
   };
 
@@ -94,42 +83,42 @@ export const Profile = function(){
     const toggle = () => setModal(!modal);
     return(
         <body>
-            <div class="profile-container">
-                <h2>Profile</h2>
-                <div class="row">
-                    <div class="col">
+            <div className="profile-container">
+                <h2 data-testid="profileH1">Profile</h2>
+                <div className="row">
+                    <div className="col">
                         <label for="first-name">First Name:</label>
                         <span id="first-name">{accountData.first_name}</span>
                     </div>
-                    <div class="col">
+                    <div className="col">
                         <label for="last-name">Last Name:</label>
                         <span id="last-name">{accountData.last_name}</span>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col">
+                <div className="row">
+                    <div className="col">
                         <label for="login">Login:</label>
                         <span id="login">{accountData.login}</span>
                     </div>
-                    <div class="col">
+                    <div className="col">
                         <label for="address">Address:</label>
                         <span id="address">{accountData.address}</span>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col">
+                <div className="row">
+                    <div className="col">
                         <label for="phone">Phone:</label>
                         <span id="phone">{accountData.phone}</span>
                     </div>
-                    <div class="col">
+                    <div className="col">
                         <label for="email">Email:</label>
                         <span id="email">{accountData.email}</span>
                     </div>
                 </div>
-                <div class="row">
-                    <button class="btn" id="edit-profile-btn"><Link to="/edit_profile" style={{textDecoration:"none"}}>Edit Profile</Link></button>
-                    <button class="btn" id="logout-btn" onClick={(e)=>handleLogOut(e)}>Logout</button>
-                    <button class="btn" id="delete-user-btn" onClick={(e)=>handleDelete(e)}>Delete User</button>
+                <div className="row">
+                    <button className="btn" id="edit-profile-btn"><Link to="/edit_profile" style={{textDecoration:"none"}}>Edit Profile</Link></button>
+                    <button data-testid="LOGOUT" className="btn" id="logout-btn" type="button"  onClick={(e)=>handleLogOut(e)}>Logout</button>
+                    <button className="btn" id="delete-user-btn" onClick={(e)=>handleDelete(e)}>Delete User</button>
                 </div>
             </div>
         </body>
