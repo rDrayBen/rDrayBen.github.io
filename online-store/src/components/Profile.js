@@ -10,7 +10,7 @@ export const Profile = function(){
     const [accountData, setAccountData] = useState({});
     const token = sessionStorage.getItem('Token');
     const url = 'http://127.0.0.1:5000/user/self';
-    const navigate = useNavigate();
+    // const navigate = useNavigate();
     const [modal, setModal] = useState(false);
     
 
@@ -28,15 +28,16 @@ export const Profile = function(){
             url,
             config
         );
-        // console.log(response);
+        console.log(response);
         setAccountData(response.data);
+        sessionStorage.setItem('UID', response["data"]['id']);
         } catch (error) {
             console.log(error);
-            if(error.response.data.msg === "Token has expired"){
+            // if(error.response.data.msg === "Token has expired"){
                 alert('You need to log in again');
                 sessionStorage.removeItem('Authorization');
-                navigate('/login');
-            }
+                // navigate('/login');
+            // }
         }
   };
 
@@ -47,7 +48,7 @@ export const Profile = function(){
     localStorage.removeItem('Authorization');
     localStorage.removeItem('Token');
     localStorage.removeItem("cartGoods");
-    navigate('/');
+    // navigate('/');
   }
 
   const handleDelete = async event =>{
@@ -68,7 +69,7 @@ export const Profile = function(){
         localStorage.removeItem('Token');
         localStorage.removeItem("ShoppingCartItems");
         localStorage.removeItem("cartGoods");
-        navigate('/');
+        // navigate('/');
         alert('Your account was successfully deleted');
     } catch (error) {
         console.log(error);
